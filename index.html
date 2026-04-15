@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selector de Versiones - Dr. Pedro Avilés</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+  }
+  #selector-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #0a1628;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    border-bottom: 2px solid #b8922a;
+    gap: 20px;
+  }
+  .version-btn {
+    background: transparent;
+    border: 1px solid #b8922a;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .version-btn.active {
+    background: #b8922a;
+    color: #0a1628;
+    font-weight: bold;
+  }
+  .version-btn:hover {
+    background: rgba(184, 146, 42, 0.2);
+  }
+  iframe {
+    width: 100%;
+    height: calc(100% - 50px);
+    border: none;
+    margin-top: 50px;
+  }
+</style>
+</head>
+<body>
+
+<div id="selector-bar">
+  <span>Seleccionar Versión:</span>
+  <button class="version-btn active" onclick="loadVersion('v1.html', this)">Versión 1</button>
+  <button class="version-btn" onclick="loadVersion('v2.html', this)">Versión 2</button>
+</div>
+
+<iframe id="version-frame" src="v1.html"></iframe>
+
+<script>
+  function loadVersion(url, btn) {
+    document.getElementById('version-frame').src = url;
+    document.querySelectorAll('.version-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>

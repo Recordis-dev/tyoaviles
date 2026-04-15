@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Pedro Avilés · Centro de Columna y Movimiento</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #142240;
+    --navy-light: #1e3a5f;
+    --blue: #1d5fa4;
+    --blue-light: #2979c8;
+    --blue-pale: #ddeeff;
+    --gold: #b8922a;
+    --gold-light: #d4a843;
+    --gold-pale: #fdf3df;
+    --white: #ffffff;
+    --off-white: #f8f9fb;
+    --gray-100: #f2f4f7;
+    --gray-200: #e0e4ec;
+    --gray-400: #8a94a6;
+    --gray-600: #52586a;
+    --gray-800: #2d3142;
+    --text: #1a1e2e;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    background: rgba(10, 22, 40, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,146,42,0.18);
+    transition: all 0.4s var(--ease-out);
+  }
+  nav.scrolled { height: 60px; background: rgba(10,22,40,0.99); }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-emblem {
+    width: 40px; height: 40px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .nav-emblem::before {
+    content: 'PA';
+    font-family: var(--font-serif);
+    font-size: 13px; font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+  }
+  .nav-name-group { display: flex; flex-direction: column; line-height: 1.2; }
+  .nav-title { font-family: var(--font-serif); color: var(--white); font-size: 15px; font-weight: 500; }
+  .nav-sub { font-size: 10px; color: var(--gold-light); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 400; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.4px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s var(--ease-out);
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    padding: 9px 22px;
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-weight: 500 !important;
+    border-radius: 3px;
+    font-size: 13px !important;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.15s !important;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px) !important; }
+  .nav-cta::after { display: none !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+
+  /* ─── HERO ────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 120px 5vw 80px;
+  }
+  .hero-grid-overlay {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(184,146,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,146,42,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.6;
+  }
+  .hero-accent-line {
+    position: absolute; top: 0; left: 5vw;
+    width: 1px; height: 50%;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0.4;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(184,146,42,0.12);
+    border: 1px solid rgba(184,146,42,0.3);
+    border-radius: 2px;
+    padding: 6px 14px;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold-light); font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .hero-badge::before {
+    content: ''; display: block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); font-family: var(--font-sans); font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 500; line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .hero-title em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+  .hero-mantra {
+    font-family: var(--font-serif);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 28px;
+    padding-left: 20px;
+    border-left: 2px solid var(--gold);
+  }
+  .hero-philosophy {
+    font-size: 15px; line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    max-width: 540px;
+    margin-bottom: 40px;
+  }
+  .hero-philosophy strong { color: var(--white); font-weight: 500; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+    text-decoration: none; border-radius: 3px;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 26px;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    font-family: var(--font-sans); font-size: 14px; font-weight: 400;
+    text-decoration: none; border-radius: 3px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(184,146,42,0.08); }
+  .hero-stats {
+    position: absolute; bottom: 60px; right: 5vw;
+    display: flex; gap: 0; z-index: 2;
+  }
+  .hero-stat {
+    padding: 20px 28px;
+    border-left: 1px solid rgba(184,146,42,0.2);
+    text-align: center;
+  }
+  .hero-stat:first-child { border-left: none; }
+  .stat-num {
+    font-family: var(--font-serif);
+    font-size: 28px; font-weight: 600;
+    color: var(--gold-light);
+    display: block; line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); font-weight: 400;
+    display: block; margin-top: 4px;
+  }
+
+  /* ─── SECTIONS ────────────────────────────────────────── */
+  section { padding: 90px 5vw; }
+  .section-header { margin-bottom: 56px; }
+  .section-tag {
+    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--blue); font-weight: 500;
+    display: block; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 500; line-height: 1.25;
+    color: var(--navy);
+  }
+  .section-sub {
+    margin-top: 16px; font-size: 16px;
+    color: var(--gray-600); max-width: 520px; line-height: 1.7;
+  }
+
+  /* ─── ABOUT ───────────────────────────────────────────── */
+  #about { background: var(--off-white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px; align-items: start;
+  }
+  .about-visual { position: relative; }
+  .about-photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--navy-light);
+    border-radius: 4px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-photo-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(184,146,42,0.15) 0%, transparent 60%);
+  }
+  .photo-placeholder {
+    font-family: var(--font-serif);
+    font-size: 5rem; font-weight: 400;
+    color: rgba(184,146,42,0.3);
+    font-style: italic;
+    user-select: none;
+  }
+  .about-credential-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--navy);
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    padding: 16px 20px;
+    text-align: center;
+  }
+  .badge-icon {
+    font-size: 24px; display: block; margin-bottom: 4px;
+    filter: grayscale(0);
+  }
+  .badge-text { font-size: 11px; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; display: block; }
+  .about-content { padding-top: 8px; }
+  .primum-quote {
+    font-family: var(--font-serif);
+    font-size: 1.5rem; font-style: italic;
+    color: var(--navy); font-weight: 400;
+    padding: 20px 0 20px 24px;
+    border-left: 3px solid var(--gold);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .about-text { font-size: 15.5px; color: var(--gray-600); line-height: 1.85; margin-bottom: 20px; }
+  .about-text strong { color: var(--navy); font-weight: 500; }
+  .values-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .value-tag {
+    padding: 7px 16px;
+    border: 1px solid var(--gray-200);
+    border-radius: 2px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
+    color: var(--navy-mid);
+    background: var(--white);
+    transition: all 0.2s;
+  }
+  .value-tag:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); }
+  .value-tag.military { border-color: rgba(184,146,42,0.4); color: var(--gold); background: var(--gold-pale); }
+
+  /* ─── SERVICES ────────────────────────────────────────── */
+  #servicios { background: var(--white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+    border: 1px solid var(--gray-200);
+  }
+  .service-card {
+    background: var(--white);
+    padding: 40px 36px;
+    position: relative; overflow: hidden;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s var(--ease-out);
+  }
+  .service-card:hover { background: var(--off-white); }
+  .service-card:hover::before { height: 100%; }
+  .service-num {
+    font-family: var(--font-serif);
+    font-size: 3.5rem; font-weight: 400;
+    color: var(--gray-200);
+    line-height: 1; margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+  .service-card:hover .service-num { color: rgba(184,146,42,0.15); }
+  .service-icon-line {
+    width: 40px; height: 2px;
+    background: var(--gold);
+    margin-bottom: 20px;
+    transition: width 0.3s;
+  }
+  .service-card:hover .service-icon-line { width: 60px; }
+  .service-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem; font-weight: 500;
+    color: var(--navy); margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .service-desc { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin-bottom: 20px; }
+  .service-avatar {
+    padding: 14px 16px;
+    background: var(--off-white);
+    border-radius: 3px;
+    font-size: 13px; color: var(--gray-600); line-height: 1.5;
+  }
+  .service-avatar strong { color: var(--navy-mid); font-weight: 500; display: block; margin-bottom: 3px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+  .service-cta-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 20px;
+    font-size: 13px; font-weight: 500;
+    color: var(--blue); text-decoration: none;
+    transition: gap 0.2s, color 0.2s;
+  }
+  .service-cta-link:hover { gap: 10px; color: var(--blue-light); }
+  .service-cta-link::after { content: '→'; }
+
+  /* ─── PHILOSOPHY ──────────────────────────────────────── */
+  #filosofia {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .philosophy-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .philosophy-text .section-title { color: var(--white); }
+  .philosophy-text .section-tag { color: var(--gold-light); }
+  .philosophy-tagline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    margin: 24px 0;
+    padding: 24px 28px;
+    border: 1px solid rgba(184,146,42,0.25);
+    background: rgba(184,146,42,0.05);
+    border-radius: 2px;
+    position: relative;
+  }
+  .philosophy-tagline::before {
+    content: '"';
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    color: var(--gold);
+    position: absolute; top: -20px; left: 16px;
+    line-height: 1; opacity: 0.5;
+  }
+  .philosophy-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; }
+  .principles-list {
+    display: flex; flex-direction: column; gap: 0;
+    border: 1px solid rgba(184,146,42,0.2);
+  }
+  .principle-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(184,146,42,0.1);
+    transition: background 0.2s;
+  }
+  .principle-item:last-child { border-bottom: none; }
+  .principle-item:hover { background: rgba(184,146,42,0.06); }
+  .principle-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    border: 1px solid rgba(184,146,42,0.35);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .principle-body h4 {
+    font-family: var(--font-sans); font-weight: 500;
+    font-size: 14px; color: var(--gold-light);
+    margin-bottom: 4px; letter-spacing: 0.3px;
+  }
+  .principle-body p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  /* ─── BLOG / EDUCACION ────────────────────────────────── */
+  #educacion { background: var(--off-white); }
+  .edu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .edu-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+  }
+  .edu-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(10,22,40,0.08); }
+  .edu-card-thumb {
+    height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .edu-card-thumb.blue { background: var(--navy-mid); }
+  .edu-card-thumb.mid { background: var(--navy-light); }
+  .edu-card-thumb.light { background: var(--blue); }
+  .edu-thumb-icon {
+    font-size: 3rem;
+    opacity: 0.3;
+    user-select: none;
+  }
+  .edu-thumb-tag {
+    position: absolute; bottom: 12px; left: 12px;
+    background: rgba(184,146,42,0.9);
+    color: var(--navy);
+    font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 2px;
+  }
+  .edu-card-body { padding: 22px 22px 20px; }
+  .edu-card-meta { font-size: 11px; color: var(--gray-400); letter-spacing: 0.5px; margin-bottom: 10px; }
+  .edu-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem; font-weight: 500;
+    color: var(--navy); line-height: 1.4; margin-bottom: 10px;
+  }
+  .edu-card-excerpt { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+  .edu-coming-soon {
+    margin-top: 48px;
+    padding: 28px 32px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .podcast-badge {
+    width: 64px; height: 64px; flex-shrink: 0;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 2px;
+  }
+  .podcast-badge-icon { font-size: 22px; }
+  .podcast-badge-text { font-size: 8px; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; }
+  .podcast-info h4 {
+    font-family: var(--font-serif); font-size: 1.1rem;
+    color: var(--navy); margin-bottom: 4px;
+  }
+  .podcast-info p { font-size: 13px; color: var(--gray-600); }
+  .podcast-info .coming { font-size: 11px; color: var(--gold); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ─── FAQ ─────────────────────────────────────────────── */
+  #faq { background: var(--white); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 900px; }
+  .faq-item {
+    border: 1px solid var(--gray-200);
+    border-radius: 3px; overflow: hidden;
+  }
+  .faq-q {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    cursor: pointer;
+    font-weight: 500; font-size: 14px; color: var(--navy);
+    background: var(--white);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .faq-q:hover { background: var(--off-white); }
+  .faq-arrow {
+    width: 20px; height: 20px; flex-shrink: 0;
+    border: 1px solid var(--gray-200);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: var(--gray-400);
+    transition: transform 0.3s var(--ease-out), background 0.2s;
+  }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .faq-a {
+    padding: 0 20px;
+    max-height: 0; overflow: hidden;
+    font-size: 13.5px; color: var(--gray-600); line-height: 1.7;
+    transition: max-height 0.4s var(--ease-out), padding 0.3s;
+    border-top: 0 solid var(--gray-200);
+  }
+  .faq-item.open .faq-a {
+    max-height: 200px; padding: 16px 20px;
+    border-top-width: 1px;
+  }
+
+  /* ─── CONTACT ─────────────────────────────────────────── */
+  #contacto { background: var(--navy); color: var(--white); }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 72px; align-items: start;
+  }
+  .contact-left .section-title { color: var(--white); }
+  .contact-left .section-tag { color: var(--gold-light); }
+  .contact-left .section-sub { color: rgba(255,255,255,0.6); max-width: 400px; margin-top: 12px; }
+  .contact-channels { margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+  .contact-channel {
+    display: flex; align-items: center; gap: 16px;
+    padding: 18px 20px;
+    border: 1px solid rgba(184,146,42,0.18);
+    border-radius: 3px;
+    background: rgba(255,255,255,0.03);
+    text-decoration: none; color: inherit;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .contact-channel:hover { background: rgba(184,146,42,0.08); border-color: rgba(184,146,42,0.4); transform: translateX(4px); }
+  .channel-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .ch-wa { background: #1da462; }
+  .ch-ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #f56040); }
+  .ch-yt { background: #ff0000; }
+  .ch-fb { background: #1877f2; }
+  .channel-body { flex: 1; }
+  .channel-body strong { display: block; font-size: 13px; font-weight: 500; color: var(--white); }
+  .channel-body span { font-size: 12px; color: rgba(255,255,255,0.45); }
+  .channel-arrow { font-size: 14px; color: rgba(255,255,255,0.3); }
+  .contact-form-wrapper {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,146,42,0.18);
+    border-radius: 4px; padding: 36px 32px;
+  }
+  .form-title {
+    font-family: var(--font-serif); font-size: 1.3rem;
+    color: var(--white); margin-bottom: 6px;
+  }
+  .form-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { display: block; font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 7px; font-weight: 500; }
+  .form-row input, .form-row select, .form-row textarea {
+    width: 100%; padding: 11px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 3px; color: var(--white);
+    font-family: var(--font-sans); font-size: 14px;
+    outline: none; transition: border-color 0.2s;
+  }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--gold); }
+  .form-row input::placeholder, .form-row textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-row select option { background: var(--navy); }
+  .form-row textarea { resize: vertical; min-height: 90px; }
+  .form-submit {
+    width: 100%; padding: 14px;
+    background: var(--gold); color: var(--navy);
+    font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+    border: none; border-radius: 3px; cursor: pointer;
+    letter-spacing: 0.3px; margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .form-note { font-size: 11px; color: rgba(255,255,255,0.3); text-align: center; margin-top: 12px; line-height: 1.5; }
+
+  /* ─── FOOTER ──────────────────────────────────────────── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(184,146,42,0.15);
+    padding: 32px 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-brand { font-family: var(--font-serif); font-size: 15px; color: rgba(255,255,255,0.6); }
+  .footer-brand strong { color: var(--gold-light); }
+  .footer-motto { font-size: 12px; color: rgba(255,255,255,0.3); font-style: italic; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ─── FLOATING WA ─────────────────────────────────────── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 99;
+    width: 56px; height: 56px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: wa-enter 0.6s 1s var(--ease-out) both;
+  }
+  @keyframes wa-enter { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .wa-float svg { width: 28px; height: 28px; }
+  .wa-tooltip {
+    position: absolute; right: 68px; top: 50%;
+    transform: translateY(-50%);
+    background: var(--navy);
+    color: var(--white);
+    font-size: 12px; font-weight: 500;
+    padding: 7px 12px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .wa-float:hover .wa-tooltip { opacity: 1; }
+
+  /* ─── ANIMATIONS ──────────────────────────────────────── */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ─── MOBILE ──────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-stats { display: none; }
+    .about-grid, .philosophy-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .about-credential-badge { display: none; }
+    .nav-mobile-menu {
+      display: flex !important;
+      flex-direction: column; gap: 4px;
+      padding: 16px 5vw;
+      background: var(--navy);
+      border-top: 1px solid rgba(184,146,42,0.15);
+    }
+    .nav-mobile-menu a {
+      padding: 12px 0;
+      font-size: 15px; color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+  }
+  .nav-mobile-menu { display: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <div class="nav-emblem"></div>
+    <div class="nav-name-group">
+      <span class="nav-title">Dr. Pedro Avilés</span>
+      <span class="nav-sub">Columna · Ortopedia · Movimiento</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">Sobre Mí</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#filosofia">Filosofía</a>
+    <a href="#educacion">Educación</a>
+    <a href="#faq">Preguntas</a>
+    <a href="#contacto" class="nav-cta">Agendar Consulta</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">Sobre Mí</a>
+  <a href="#servicios" onclick="closeMenu()">Servicios</a>
+  <a href="#filosofia" onclick="closeMenu()">Filosofía</a>
+  <a href="#educacion" onclick="closeMenu()">Educación</a>
+  <a href="#faq" onclick="closeMenu()">Preguntas</a>
+  <a href="#contacto" onclick="closeMenu()" style="color: var(--gold);">Agendar Consulta →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-accent-line"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Traumatología · Neurocirugía · Columna Vertebral</div>
+    <p class="hero-eyebrow">Dr. Pedro Edmundo Avilés</p>
+    <h1 class="hero-title">
+      Recupera tu<br><em>movimiento.</em><br>Recupera tu vida.
+    </h1>
+    <p class="hero-mantra">Movimiento es vida.</p>
+    <p class="hero-philosophy">
+      <strong>Estoy aquí para ayudarte a comprender tu enfermedad</strong>, y mi compromiso es utilizar las herramientas más actuales y basadas en evidencia para resolverla sin ocasionarte mayor daño, acompañándote hasta tu recuperación total.
+    </p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        Agendar Consulta
+      </a>
+      <a href="#servicios" class="btn-secondary">Ver Procedimientos →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="stat-num">+TyO</span>
+      <span class="stat-label">Ortopedia</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-num">HCM</span>
+      <span class="stat-label">Form. Militar</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Dedicación</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual fade-up">
+      <div class="about-photo-frame">
+        <div class="photo-placeholder">PA</div>
+      </div>
+      <div class="about-credential-badge">
+        <span class="badge-icon">⚕</span>
+        <span class="badge-text">Hospital Central Militar</span>
+      </div>
+    </div>
+    <div class="about-content fade-up">
+      <div class="section-header">
+        <span class="section-tag">Sobre el Dr. Avilés</span>
+        <h2 class="section-title">Precisión quirúrgica.<br>Calidez humana genuina.</h2>
+      </div>
+      <blockquote class="primum-quote">
+        Primum non nocere.<br>Primero, no hacer daño.
+      </blockquote>
+      <p class="about-text">
+        Desde que tengo memoria, siempre quise ser médico para ayudar a las personas. La Traumatología y Ortopedia se encarga de mantener a cada paciente en movimiento — y el <strong>movimiento es vida</strong>. Es la especialidad que permite regresar el cuerpo a como estaba antes de una lesión o traumatismo.
+      </p>
+      <p class="about-text">
+        Mi primer acercamiento hospitalario fue en TyO, donde <strong>literalmente arreglamos una fractura</strong>. A partir de ahí, nunca la solté. Mamá, papá, mis dos abuelos maternos — todos pasaron por quirófano de Ortopedia y los vi recuperar al 100% su actividad física previa.
+      </p>
+      <p class="about-text">
+        Mi abuelo Edmundo siempre me dijo: <em>"No veas a los pacientes como un número. Nunca te hagas insensible."</em> Al día de hoy, así lo hago. Mi formación en el <strong>Hospital Central Militar</strong> me proveyó de sistematización de pasos quirúrgicos, precisión técnica y la capacidad de resolver las lesiones más complejas.
+      </p>
+      <div class="values-grid">
+        <span class="value-tag military">⊕ Formación Militar</span>
+        <span class="value-tag">Honesto</span>
+        <span class="value-tag">Confiable</span>
+        <span class="value-tag">Empático</span>
+        <span class="value-tag">Hábil</span>
+        <span class="value-tag">Disponible</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="section-header fade-up">
+    <span class="section-tag">Procedimientos</span>
+    <h2 class="section-title">Soluciones de alto impacto.<br>Mínima intervención necesaria.</h2>
+    <p class="section-sub">Cada procedimiento está seleccionado por su demanda clínica, rentabilidad terapéutica y capacidad de transformar la calidad de vida del paciente.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01</div>
+      <div class="service-icon-line"></div>
+      <h3 class="service-title">Artroplastia Total<br>de Rodilla</h3>
+      <p class="service-desc">Reemplazo articular completo para pacientes con gonartrosis severa. Restaura la movilidad plena y elimina el dolor incapacitante, devolviendo independencia y calidad de vida.</p>
+      <div class="service-avatar">
+        <strong>Paciente ideal</strong>
+        Mayores de 50 años · Retirados o amas de casa · Dolor incapacitante y nocturno · Limitación severa de movilidad básica
+      </div>
+      <a href="#contacto" class="service-cta-link">Consultar procedimiento</a>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">02</div>
+      <div class="service-icon-line"></div>
+      <h3 class="service-title">Descompresión e<br>Instrumentación de Columna</h3>
+      <p class="service-desc">Cirugía para hernias discales, estenosis foraminal y conducto lumbar estrecho. Detiene el deterioro neurológico, alivia el dolor irradiado y restaura la función motora.</p>
+      <div class="service-avatar">
+        <strong>Paciente ideal</strong>
+        Mayores de 40 años · Dolor lumbar o cervical irradiado · Parestesias en extremidades · Pérdida progresiva de fuerza
+      </div>
+      <a href="#contacto" class="service-cta-link">Consultar procedimiento</a>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">03</div>
+      <div class="service-icon-line"></div>
+      <h3 class="service-title">Osteosíntesis</h3>
+      <p class="service-desc">Fijación y estabilización de fracturas complejas por traumatismo, caídas o accidentes. Resolución quirúrgica precisa para recuperar funcionalidad en el menor tiempo posible.</p>
+      <div class="service-avatar">
+        <strong>Paciente ideal</strong>
+        Todas las edades · Fracturas por caídas o accidentes · Dolor agudo localizado · Necesidad de resolución urgente
+      </div>
+      <a href="#contacto" class="service-cta-link">Consultar procedimiento</a>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">04</div>
+      <div class="service-icon-line"></div>
+      <h3 class="service-title">Viscosuplementación<br>Articular</h3>
+      <p class="service-desc">Tratamiento mínimamente invasivo con ácido hialurónico para artrosis incipiente o moderada. Reduce el dolor, mejora la lubricación articular y puede postergar la necesidad de cirugía mayor.</p>
+      <div class="service-avatar">
+        <strong>Paciente ideal</strong>
+        45-65 años · Desgaste articular temprano · Quiere evitar cirugía · Mantener actividad cotidiana sin dolor
+      </div>
+      <a href="#contacto" class="service-cta-link">Consultar procedimiento</a>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="filosofia">
+  <div class="philosophy-inner">
+    <div class="philosophy-text">
+      <div class="section-header">
+        <span class="section-tag">Mi Filosofía Médica</span>
+        <h2 class="section-title" style="color:var(--white)">Un principio,<br>una guía.</h2>
+      </div>
+      <blockquote class="philosophy-tagline">
+        Estoy aquí para ayudarte a comprender tu enfermedad, y mi compromiso es utilizar las herramientas más actuales y basadas en evidencia para resolverla sin ocasionarte mayor daño, acompañándote hasta tu recuperación total.
+      </blockquote>
+      <p class="philosophy-desc">Cada paciente llega en un momento vulnerable de su vida — con dolor, miedo e incertidumbre. Mi responsabilidad es no solo resolver el problema clínico, sino acompañar con claridad, precisión y humanidad en cada paso del camino.</p>
+    </div>
+    <div class="principles-list fade-up">
+      <div class="principle-item">
+        <div class="principle-icon">⊕</div>
+        <div class="principle-body">
+          <h4>Primero, no hacer daño</h4>
+          <p>El principio hipocrático como brújula de cada decisión quirúrgica y clínica.</p>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="principle-icon">◎</div>
+        <div class="principle-body">
+          <h4>Técnica personalizada</h4>
+          <p>Conocer todas las técnicas para seleccionar la que mejor sirve a este paciente en particular.</p>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="principle-icon">△</div>
+        <div class="principle-body">
+          <h4>Sistematización militar</h4>
+          <p>Precisión, orden y protocolos de alto desempeño derivados de la formación en el Hospital Central Militar.</p>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="principle-icon">◇</div>
+        <div class="principle-body">
+          <h4>Humildad y equipo</h4>
+          <p>Escuchar al equipo quirúrgico y reconocer los límites propios para pedir apoyo cuando es necesario.</p>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="principle-icon">○</div>
+        <div class="principle-body">
+          <h4>Fe y propósito</h4>
+          <p>La convicción en un ser superior que permite claridad mental y aplicación óptima del conocimiento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCACION / BLOG -->
+<section id="educacion">
+  <div class="section-header fade-up">
+    <span class="section-tag">Educación &amp; Blog</span>
+    <h2 class="section-title">Conocimiento al servicio<br>de pacientes y colegas.</h2>
+    <p class="section-sub">Artículos educativos, cápsulas clínicas y guías orientadas tanto a pacientes como a médicos residentes y colegas de especialidad.</p>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card fade-up">
+      <div class="edu-card-thumb blue">
+        <div class="edu-thumb-icon">🦴</div>
+        <span class="edu-thumb-tag">Para Pacientes</span>
+      </div>
+      <div class="edu-card-body">
+        <p class="edu-card-meta">Ortopedia · Lectura: 5 min</p>
+        <h3 class="edu-card-title">¿Cuándo es necesaria la cirugía de rodilla?</h3>
+        <p class="edu-card-excerpt">Aprende a reconocer las señales que indican que el tratamiento conservador ya no es suficiente y cuándo considerar la artroplastia total.</p>
+      </div>
+    </div>
+    <div class="edu-card fade-up">
+      <div class="edu-card-thumb mid">
+        <div class="edu-thumb-icon">🧠</div>
+        <span class="edu-thumb-tag">Para Pacientes</span>
+      </div>
+      <div class="edu-card-body">
+        <p class="edu-card-meta">Columna · Lectura: 6 min</p>
+        <h3 class="edu-card-title">Hernia de disco: mitos y realidades sobre la cirugía</h3>
+        <p class="edu-card-excerpt">Desmitificamos los miedos más comunes sobre la cirugía de columna y explicamos qué esperar antes, durante y después del procedimiento.</p>
+      </div>
+    </div>
+    <div class="edu-card fade-up">
+      <div class="edu-card-thumb light">
+        <div class="edu-thumb-icon">📋</div>
+        <span class="edu-thumb-tag">Para Colegas</span>
+      </div>
+      <div class="edu-card-body">
+        <p class="edu-card-meta">Técnica Quirúrgica · Lectura: 10 min</p>
+        <h3 class="edu-card-title">Sistematización en osteosíntesis: enfoque del HCM</h3>
+        <p class="edu-card-excerpt">Protocolo basado en la formación del Hospital Central Militar para el manejo estandarizado de fracturas complejas de extremidades.</p>
+      </div>
+    </div>
+  </div>
+  <div class="edu-coming-soon fade-up">
+    <div class="podcast-badge">
+      <span class="podcast-badge-icon">🎙</span>
+      <span class="podcast-badge-text">Podcast</span>
+    </div>
+    <div class="podcast-info">
+      <span class="coming">Próximamente</span>
+      <h4>Calidad de Movimiento — El Podcast</h4>
+      <p>Entrevistas con eminencias médicas, cápsulas técnicas para colegas y conversaciones accesibles para pacientes. <em>Movimiento es vida.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header fade-up">
+    <span class="section-tag">Preguntas Frecuentes</span>
+    <h2 class="section-title">Resolvemos tus dudas antes<br>de la primera consulta.</h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        ¿Cómo sé si necesito una cirugía de columna?
+        <span class="faq-arrow">↓</span>
+      </div>
+      <div class="faq-a">Si presentas dolor lumbar o cervical intenso que irradia hacia brazos o piernas, acompañado de hormigueos o debilidad muscular progresiva, es momento de una evaluación especializada. La cirugía se considera cuando el tratamiento conservador (fisioterapia, medicación) no ha resuelto el problema en 6-12 semanas o hay deterioro neurológico activo.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        ¿Cuánto tiempo tarda la recuperación de una artroplastia de rodilla?
+        <span class="faq-arrow">↓</span>
+      </div>
+      <div class="faq-a">La recuperación funcional inicial ocurre en las primeras 4-6 semanas. La mayoría de los pacientes retoman actividades cotidianas a los 2-3 meses. La recuperación completa, incluyendo actividades más exigentes, puede tomar entre 6 y 12 meses. El seguimiento postoperatorio es parte integral de nuestro protocolo.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        ¿Cuál es el primer paso para agendar una consulta?
+        <span class="faq-arrow">↓</span>
+      </div>
+      <div class="faq-a">Puedes contactarme directamente por WhatsApp o llenar el formulario de esta página. Te responderemos en menos de 24 horas hábiles para coordinar tu consulta presencial o virtual según tu caso y ubicación.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        ¿Atiende pacientes con seguro médico o solo consulta privada?
+        <span class="faq-arrow">↓</span>
+      </div>
+      <div class="faq-a">Atendemos tanto consulta privada como derivaciones a través de aseguradoras. Contáctanos para verificar la cobertura de tu aseguradora y coordinar los trámites necesarios. También ofrecemos opciones de financiamiento y planes de pago.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        ¿Qué debo llevar a mi primera consulta?
+        <span class="faq-arrow">↓</span>
+      </div>
+      <div class="faq-a">Trae estudios de imagen previos (RMN, TAC, rayos X), resultados de laboratorio recientes si los tienes, y una lista de los medicamentos que estás tomando. Si ya tienes un diagnóstico previo, también el expediente o notas médicas anteriores.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFAQ(this)">
+        ¿Ofrece segunda opinión médica?
+        <span class="faq-arrow">↓</span>
+      </div>
+      <div class="faq-a">Sí. Una segunda opinión es siempre válida y recomendable para decisiones quirúrgicas. Te revisaré con los mismos estándares de evidencia y te explicaré claramente mis conclusiones, independientemente de si coinciden con el diagnóstico previo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-header">
+        <span class="section-tag">Contacto</span>
+        <h2 class="section-title" style="color:var(--white)">El primer paso hacia<br>tu recuperación.</h2>
+        <p class="section-sub">Agenda tu consulta hoy. Respuesta en menos de 24 horas.</p>
+      </div>
+      <div class="contact-channels">
+        <a href="https://wa.me/521XXXXXXXXXX" class="contact-channel" target="_blank">
+          <div class="channel-icon ch-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <div class="channel-body">
+            <strong>WhatsApp Business</strong>
+            <span>Respuesta inmediata · Consultas y citas</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+        <a href="https://instagram.com" class="contact-channel" target="_blank">
+          <div class="channel-icon ch-ig">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div class="channel-body">
+            <strong>Instagram</strong>
+            <span>@drpedroaviles · Casos, educación y tips</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+        <a href="https://youtube.com" class="contact-channel" target="_blank">
+          <div class="channel-icon ch-yt">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <div class="channel-body">
+            <strong>YouTube</strong>
+            <span>Dr. Pedro Avilés · Videos educativos</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form-wrapper fade-up">
+      <h3 class="form-title">Solicitar Consulta</h3>
+      <p class="form-sub">Completa el formulario y te contactamos en menos de 24 hrs.</p>
+      <form onsubmit="submitForm(event)">
+        <div class="form-row">
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-row">
+          <label>Teléfono / WhatsApp</label>
+          <input type="tel" placeholder="+52 555 000 0000" required>
+        </div>
+        <div class="form-row">
+          <label>Motivo de consulta</label>
+          <select>
+            <option value="">Selecciona un procedimiento</option>
+            <option>Artroplastia Total de Rodilla</option>
+            <option>Cirugía de Columna</option>
+            <option>Osteosíntesis / Fractura</option>
+            <option>Viscosuplementación</option>
+            <option>Segunda opinión</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Mensaje breve (opcional)</label>
+          <textarea placeholder="Cuéntame brevemente tu situación..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar Solicitud de Consulta →</button>
+        <p class="form-note">Tus datos son confidenciales y están protegidos bajo aviso de privacidad. No compartiré tu información con terceros.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <p class="footer-brand">© 2026 <strong>Dr. Pedro Edmundo Avilés</strong> · Centro de Columna y Movimiento</p>
+    <p class="footer-motto">Movimiento es vida.</p>
+  </div>
+  <div class="footer-links">
+    <a href="#about">Sobre Mí</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#">Aviso de Privacidad</a>
+  </div>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/521XXXXXXXXXX" class="wa-float" target="_blank">
+  <div class="wa-tooltip">¡Escríbeme ahora!</div>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+function toggleFAQ(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').style.display = 'none';
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '✓ Solicitud enviada — te contactamos pronto';
+  btn.style.background = '#2d7a4f';
+  btn.disabled = true;
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
