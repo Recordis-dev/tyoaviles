@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Pedro Avilés · Columna, Ortopedia y Movimiento</title>
+<meta name="description" content="Especialista en Traumatología, Cirugía de Columna y Ortopedia. Formado en el Hospital Central Militar. Precision quirúrgica. Acompañamiento humano total.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Dr. Pedro Edmundo Avilés",
+  "description": "Especialista en Traumatología y Ortopedia, Cirugía de Columna. Posgrado en el Hospital Central Militar.",
+  "medicalSpecialty": ["Orthopedics","Spine Surgery","Traumatology"],
+  "knowsAbout": ["Artroplastia de rodilla","Cirugía de columna","Osteosíntesis","Viscosuplementación","Hernia de disco","Estenosis foraminal"],
+  "affiliation": {"@type":"Organization","name":"Hospital Central Militar"}
+}
+</script>
+
+<style>
+:root {
+  --navy:        #08172e;
+  --navy-2:      #0f2545;
+  --navy-3:      #1a3a6b;
+  --blue:        #1d5fa4;
+  --blue-2:      #2471c8;
+  --blue-pale:   #e6f0fd;
+  --gold:        #b8922a;
+  --gold-2:      #d4a843;
+  --gold-pale:   #fdf4e0;
+  --green:       #10b981;
+  --red:         #ef4444;
+  --white:       #ffffff;
+  --off:         #f8f9fb;
+  --g100:        #f0f2f5;
+  --g200:        #dde2ea;
+  --g400:        #8a94a6;
+  --g600:        #52586a;
+  --g800:        #2d3142;
+  --text:        #111827;
+  --serif:       'Cormorant Garamond', Georgia, serif;
+  --sans:        'DM Sans', system-ui, sans-serif;
+  --ease:        cubic-bezier(0.16,1,0.3,1);
+  --ease-in:     cubic-bezier(0.4,0,1,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}
+
+/* ── NAV ─────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;padding:0 5vw;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,23,46,0.97);
+  border-bottom:1px solid rgba(184,146,42,0.15);
+  backdrop-filter:blur(14px);
+  transition:height .35s var(--ease);
+}
+nav.compact{height:58px}
+.n-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.n-monogram{
+  width:38px;height:38px;border:1.5px solid var(--gold);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:12px;font-weight:600;color:var(--gold);
+  letter-spacing:.3px;flex-shrink:0;
+}
+.n-brand{line-height:1.2}
+.n-name{font-family:var(--serif);color:var(--white);font-size:14.5px;font-weight:500;display:block}
+.n-spec{font-size:9.5px;color:var(--gold-2);letter-spacing:1.8px;text-transform:uppercase;display:block}
+.n-links{display:flex;align-items:center;gap:28px}
+.n-links a{
+  font-size:12.5px;color:rgba(255,255,255,.68);text-decoration:none;
+  letter-spacing:.3px;transition:color .2s;position:relative;
+}
+.n-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;
+  height:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--ease);
+}
+.n-links a:hover{color:var(--white)}
+.n-links a:hover::after{transform:scaleX(1)}
+.n-cta{
+  padding:8px 20px;background:var(--gold);color:var(--navy) !important;
+  font-weight:600 !important;border-radius:3px;font-size:12.5px !important;
+  transition:background .2s,transform .15s !important;white-space:nowrap;
+}
+.n-cta:hover{background:var(--gold-2) !important;transform:translateY(-1px) !important}
+.n-cta::after{display:none !important}
+.hamburger{display:none;flex-direction:column;gap:4.5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:20px;height:1.5px;background:rgba(255,255,255,.8);transition:all .3s}
+.mob-menu{display:none;flex-direction:column;padding:12px 5vw 20px;background:rgba(8,23,46,.99);border-bottom:1px solid rgba(184,146,42,.15)}
+.mob-menu a{padding:11px 0;font-size:15px;color:rgba(255,255,255,.75);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05)}
+.mob-menu a:last-child{color:var(--gold-2);border:none;margin-top:4px}
+
+/* ── HERO ────────────────────────────────────────────── */
+.hero{
+  min-height:100vh;background:var(--navy);
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  padding:100px 5vw 80px;gap:60px;position:relative;overflow:hidden;
+}
+.hero-lines{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(184,146,42,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(184,146,42,.035) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+.hero-glow{
+  position:absolute;right:-200px;top:50%;transform:translateY(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(29,95,164,.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-left{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px 5px 10px;margin-bottom:26px;
+  background:rgba(184,146,42,.1);border:1px solid rgba(184,146,42,.28);
+  border-radius:2px;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold-2);font-weight:500;
+}
+.badge-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--gold);
+  animation:blink 2.2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.hero-label{
+  font-size:10.5px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);font-family:var(--sans);font-weight:500;margin-bottom:12px;
+}
+.hero-h1{
+  font-family:var(--serif);
+  font-size:clamp(2.6rem,4.5vw,4.2rem);
+  font-weight:500;line-height:1.1;color:var(--white);margin-bottom:6px;
+}
+.hero-h1 em{color:var(--gold-2);font-style:italic}
+.hero-mantra{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.1rem,1.8vw,1.45rem);
+  color:rgba(255,255,255,.42);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:26px;
+}
+.hero-tagline{
+  font-size:14.5px;line-height:1.85;
+  color:rgba(255,255,255,.64);max-width:520px;margin-bottom:36px;
+}
+.hero-tagline strong{color:var(--white);font-weight:500}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn-gold{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 26px;background:var(--gold);color:var(--navy);
+  font-family:var(--sans);font-size:13.5px;font-weight:600;border-radius:3px;
+  text-decoration:none;letter-spacing:.2px;transition:background .2s,transform .15s;
+  border:none;cursor:pointer;
+}
+.btn-gold:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:12px 24px;border:1px solid rgba(255,255,255,.28);color:var(--white);
+  font-family:var(--sans);font-size:13.5px;font-weight:400;border-radius:3px;
+  text-decoration:none;transition:border-color .2s,background .2s;
+}
+.btn-outline:hover{border-color:var(--gold);background:rgba(184,146,42,.08)}
+
+/* ── HERO RIGHT: TRIAGE ──────────────────────────────── */
+.hero-right{position:relative;z-index:2}
+.triage-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(184,146,42,.2);
+  border-radius:6px;padding:32px 28px;
+}
+.triage-title{
+  font-family:var(--serif);font-size:1.45rem;font-weight:500;
+  color:var(--white);margin-bottom:6px;
+}
+.triage-sub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:24px}
+.triage-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.triage-btn{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:18px 12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:4px;cursor:pointer;
+  transition:background .25s,border-color .25s,transform .2s;
+  text-align:center;
+}
+.triage-btn:hover,.triage-btn.active{
+  background:rgba(29,95,164,.25);
+  border-color:var(--blue-2);transform:translateY(-2px);
+}
+.triage-icon{font-size:2rem;line-height:1;filter:grayscale(0)}
+.triage-btn-label{font-size:12px;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.2px}
+.triage-btn-sub{font-size:10.5px;color:rgba(255,255,255,.35);line-height:1.3}
+.triage-result{
+  padding:16px 18px;
+  background:rgba(29,95,164,.18);
+  border:1px solid rgba(29,95,164,.35);
+  border-radius:4px;
+  display:none;
+}
+.triage-result.show{display:block}
+.triage-result-title{font-size:13px;font-weight:600;color:var(--gold-2);margin-bottom:4px}
+.triage-result-body{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:12px}
+.triage-result-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:600;color:var(--green);text-decoration:none;
+  background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);
+  padding:6px 14px;border-radius:3px;cursor:pointer;transition:background .2s;
+}
+.triage-result-cta:hover{background:rgba(16,185,129,.22)}
+
+/* ── OUTCOME STRIP ───────────────────────────────────── */
+.outcomes{
+  background:var(--navy-2);border-top:1px solid rgba(184,146,42,.12);
+  border-bottom:1px solid rgba(184,146,42,.12);
+  padding:28px 5vw;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.outcome-item{display:flex;align-items:center;gap:14px}
+.outcome-num{
+  font-family:var(--serif);font-size:2rem;font-weight:600;
+  color:var(--gold-2);line-height:1;white-space:nowrap;
+}
+.outcome-body{}
+.outcome-label{font-size:12.5px;font-weight:500;color:var(--white);display:block}
+.outcome-sub{font-size:11px;color:rgba(255,255,255,.38);letter-spacing:.5px;display:block}
+.outcome-div{width:1px;height:40px;background:rgba(184,146,42,.18);flex-shrink:0}
+
+/* ── SECTIONS ────────────────────────────────────────── */
+section{padding:88px 5vw}
+.s-tag{display:block;font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:11px}
+.s-h2{font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.75rem);font-weight:500;line-height:1.2;color:var(--navy)}
+.s-sub{margin-top:14px;font-size:15.5px;color:var(--g600);max-width:500px;line-height:1.75}
+.s-header{margin-bottom:52px}
+.fade{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.fade.in{opacity:1;transform:none}
+.fade:nth-child(2){transition-delay:.1s}
+.fade:nth-child(3){transition-delay:.2s}
+.fade:nth-child(4){transition-delay:.3s}
+
+/* ── TRUST BANNER ────────────────────────────────────── */
+.trust{
+  background:var(--off);
+  padding:24px 5vw;
+  display:flex;align-items:center;justify-content:center;
+  gap:36px;flex-wrap:wrap;
+  border-top:1px solid var(--g200);border-bottom:1px solid var(--g200);
+}
+.trust-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:12.5px;color:var(--g600);font-weight:500;
+}
+.trust-icon{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;background:var(--g100);flex-shrink:0;
+}
+.trust-div{width:1px;height:28px;background:var(--g200)}
+
+/* ── ABOUT ───────────────────────────────────────────── */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start}
+.about-left{}
+.about-frame{
+  aspect-ratio:4/5;background:var(--navy-2);border-radius:4px;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:0;
+}
+.about-frame::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(184,146,42,.12) 0%,transparent 55%);
+}
+.about-monogram{
+  font-family:var(--serif);font-size:6rem;font-weight:400;
+  color:rgba(184,146,42,.22);font-style:italic;user-select:none;
+}
+.eeat-metrics{
+  margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.eeat-box{
+  padding:14px 16px;
+  background:var(--off);border:1px solid var(--g200);border-radius:3px;
+  text-align:center;
+}
+.eeat-num{
+  font-family:var(--serif);font-size:1.6rem;font-weight:600;
+  color:var(--navy);display:block;line-height:1;
+}
+.eeat-desc{font-size:10.5px;color:var(--g400);letter-spacing:.5px;text-transform:uppercase;display:block;margin-top:3px}
+.about-right{}
+.primum{
+  font-family:var(--serif);font-size:1.6rem;font-style:italic;
+  color:var(--navy);padding:22px 0 22px 24px;
+  border-left:3px solid var(--gold);margin-bottom:28px;line-height:1.45;
+}
+.about-p{font-size:15px;color:var(--g600);line-height:1.9;margin-bottom:18px}
+.about-p strong{color:var(--navy);font-weight:500}
+.military-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--navy);color:var(--gold-2);
+  padding:10px 18px;border-radius:3px;
+  font-size:12px;font-weight:500;letter-spacing:.5px;margin-top:6px;
+  border:1px solid rgba(184,146,42,.25);
+}
+.military-badge span{font-size:18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tag{
+  padding:6px 14px;border:1px solid var(--g200);border-radius:2px;
+  font-size:11.5px;font-weight:500;color:var(--g800);background:var(--white);
+  transition:all .2s;cursor:default;
+}
+.tag:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
+.tag.hi{border-color:rgba(184,146,42,.35);color:var(--gold);background:var(--gold-pale)}
+
+/* ── SERVICES ────────────────────────────────────────── */
+#servicios{background:var(--off)}
+.services-wrap{display:flex;gap:36px;align-items:flex-start}
+.services-sticky{
+  position:sticky;top:80px;width:200px;flex-shrink:0;
+}
+.svc-index{
+  display:flex;flex-direction:column;gap:0;
+  border:1px solid var(--g200);border-radius:3px;overflow:hidden;background:var(--white);
+}
+.svc-idx-item{
+  padding:12px 16px;font-size:12.5px;color:var(--g600);
+  text-decoration:none;border-bottom:1px solid var(--g200);
+  transition:background .2s,color .2s,padding-left .2s;
+  border-left:2px solid transparent;
+  display:flex;align-items:center;gap:8px;
+}
+.svc-idx-item:last-child{border-bottom:none}
+.svc-idx-item:hover,.svc-idx-item.active{
+  background:var(--off);color:var(--navy);
+  border-left-color:var(--gold);padding-left:20px;
+}
+.svc-idx-num{font-size:10px;color:var(--g400);min-width:16px}
+.services-main{flex:1;min-width:0}
+.svc-cards{display:flex;flex-direction:column;gap:2px;background:var(--g200)}
+.svc-card{
+  background:var(--white);padding:36px 32px;
+  position:relative;overflow:hidden;cursor:pointer;
+  transition:background .3s;
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;
+  width:3px;height:0%;background:var(--gold);
+  transition:height .4s var(--ease);
+}
+.svc-card:hover{background:var(--off)}
+.svc-card:hover::before{height:100%}
+.svc-n{
+  font-family:var(--serif);font-size:3.2rem;font-weight:400;
+  color:var(--g100);line-height:1;margin-bottom:18px;transition:color .3s;
+}
+.svc-card:hover .svc-n{color:rgba(184,146,42,.13)}
+.svc-bar{width:36px;height:2px;background:var(--gold);margin-bottom:18px;transition:width .3s}
+.svc-card:hover .svc-bar{width:56px}
+.svc-title{
+  font-family:var(--serif);font-size:1.2rem;font-weight:500;
+  color:var(--navy);margin-bottom:10px;line-height:1.3;
+}
+.svc-desc{font-size:13.5px;color:var(--g600);line-height:1.7;margin-bottom:16px}
+.svc-avatar{
+  padding:12px 15px;background:var(--off);border-radius:3px;
+  font-size:12.5px;color:var(--g600);line-height:1.55;
+}
+.svc-avatar strong{
+  display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--g400);margin-bottom:3px;font-weight:500;
+}
+.svc-cta{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:18px;font-size:12.5px;font-weight:500;
+  color:var(--blue);text-decoration:none;transition:gap .2s,color .2s;
+}
+.svc-cta:hover{gap:9px;color:var(--blue-2)}
+.svc-cta::after{content:'→'}
+
+/* ── BLUE OCEAN ──────────────────────────────────────── */
+.blue-ocean-banner{
+  margin-top:2px;background:var(--navy);padding:32px 32px;
+  border-left:3px solid var(--gold);
+}
+.bo-tag{
+  display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);font-weight:600;margin-bottom:10px;
+}
+.bo-title{
+  font-family:var(--serif);font-size:1.3rem;font-weight:500;
+  color:var(--white);margin-bottom:8px;line-height:1.35;
+}
+.bo-sub{font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:18px}
+.bo-chips{display:flex;flex-wrap:wrap;gap:8px}
+.bo-chip{
+  padding:5px 13px;background:rgba(184,146,42,.12);
+  border:1px solid rgba(184,146,42,.28);
+  border-radius:2px;font-size:11.5px;color:var(--gold-2);font-weight:500;
+}
+
+/* ── PHILOSOPHY ──────────────────────────────────────── */
+#filosofia{background:var(--navy);color:var(--white)}
+.phil-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:start}
+.phil-left .s-h2{color:var(--white)}
+.phil-left .s-tag{color:var(--gold-2)}
+.bigquote{
+  font-family:var(--serif);font-size:clamp(1.25rem,2.2vw,1.75rem);
+  font-style:italic;color:rgba(255,255,255,.82);line-height:1.5;
+  padding:24px 26px;margin:22px 0;
+  border:1px solid rgba(184,146,42,.22);background:rgba(184,146,42,.05);
+  border-radius:2px;position:relative;
+}
+.bigquote::before{
+  content:'"';font-family:var(--serif);font-size:4.5rem;
+  color:var(--gold);opacity:.35;position:absolute;top:-18px;left:14px;line-height:1;
+}
+.phil-desc{font-size:14.5px;color:rgba(255,255,255,.52);line-height:1.85}
+.principles{display:flex;flex-direction:column;gap:0;border:1px solid rgba(184,146,42,.18)}
+.princ{
+  display:flex;align-items:flex-start;gap:15px;
+  padding:20px 22px;border-bottom:1px solid rgba(184,146,42,.09);
+  transition:background .2s;
+}
+.princ:last-child{border-bottom:none}
+.princ:hover{background:rgba(184,146,42,.05)}
+.princ-icon{
+  width:34px;height:34px;flex-shrink:0;border-radius:50%;
+  border:1px solid rgba(184,146,42,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:var(--gold-2);
+}
+.princ h4{font-size:13px;font-weight:500;color:var(--gold-2);margin-bottom:3px;letter-spacing:.2px}
+.princ p{font-size:12.5px;color:rgba(255,255,255,.43);line-height:1.55}
+
+/* ── EDUCATION ───────────────────────────────────────── */
+#educacion{background:var(--off)}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.edu-card{
+  background:var(--white);border:1px solid var(--g200);border-radius:4px;
+  overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s;
+}
+.edu-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(8,23,46,.07)}
+.edu-thumb{
+  height:150px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.edu-thumb.t1{background:var(--navy-2)}
+.edu-thumb.t2{background:var(--navy-3)}
+.edu-thumb.t3{background:var(--blue)}
+.edu-ico{font-size:2.8rem;opacity:.28;user-select:none}
+.edu-badge{
+  position:absolute;bottom:10px;left:10px;
+  background:rgba(184,146,42,.88);color:var(--navy);
+  font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:3px 9px;border-radius:2px;
+}
+.edu-body{padding:20px 20px 18px}
+.edu-meta{font-size:10.5px;color:var(--g400);letter-spacing:.3px;margin-bottom:8px}
+.edu-title{
+  font-family:var(--serif);font-size:1.05rem;font-weight:500;
+  color:var(--navy);line-height:1.4;margin-bottom:8px;
+}
+.edu-excerpt{font-size:12.5px;color:var(--g600);line-height:1.6}
+.podcast-row{
+  margin-top:36px;padding:24px 28px;
+  background:var(--white);border:1px solid var(--g200);border-radius:4px;
+  display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+}
+.pod-icon{
+  width:58px;height:58px;flex-shrink:0;
+  background:var(--navy);border-radius:4px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+}
+.pod-icon-i{font-size:20px}
+.pod-icon-t{font-size:7.5px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase}
+.pod-body h4{font-family:var(--serif);font-size:1.1rem;color:var(--navy);margin-bottom:3px}
+.pod-body p{font-size:12.5px;color:var(--g600)}
+.pod-soon{font-size:10px;color:var(--gold);font-weight:600;letter-spacing:1.2px;text-transform:uppercase;display:block;margin-bottom:3px}
+
+/* ── FAQ ─────────────────────────────────────────────── */
+#faq{background:var(--white)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:860px}
+.faq-item{border:1px solid var(--g200);border-radius:3px;overflow:hidden}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:17px 18px;cursor:pointer;
+  font-weight:500;font-size:13.5px;color:var(--navy);
+  background:var(--white);transition:background .2s;user-select:none;
+}
+.faq-q:hover{background:var(--off)}
+.faq-arr{
+  width:20px;height:20px;flex-shrink:0;border:1px solid var(--g200);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:9.5px;color:var(--g400);
+  transition:transform .3s var(--ease),background .2s,border-color .2s;
+}
+.faq-item.open .faq-arr{transform:rotate(180deg);background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.faq-a{
+  padding:0 18px;max-height:0;overflow:hidden;
+  font-size:13px;color:var(--g600);line-height:1.7;
+  transition:max-height .4s var(--ease),padding .3s;
+  border-top:0 solid var(--g200);
+}
+.faq-item.open .faq-a{max-height:220px;padding:15px 18px;border-top-width:1px}
+
+/* ── CONTACT ─────────────────────────────────────────── */
+#contacto{background:var(--navy)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact-left .s-h2{color:var(--white)}
+.contact-left .s-tag{color:var(--gold-2)}
+.contact-left .s-sub{color:rgba(255,255,255,.52);max-width:380px;margin-top:10px}
+.channels{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.channel{
+  display:flex;align-items:center;gap:14px;
+  padding:15px 18px;border:1px solid rgba(184,146,42,.15);border-radius:3px;
+  background:rgba(255,255,255,.025);text-decoration:none;color:inherit;
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.channel:hover{background:rgba(184,146,42,.07);border-color:rgba(184,146,42,.38);transform:translateX(4px)}
+.ch-ico{
+  width:38px;height:38px;flex-shrink:0;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.ch-wa2{background:#1da462}.ch-ig2{background:linear-gradient(135deg,#833ab4,#fd1d1d,#f56040)}
+.ch-yt2{background:#ff0000}.ch-fb2{background:#1877f2}
+.ch-body strong{display:block;font-size:12.5px;font-weight:500;color:var(--white)}
+.ch-body span{font-size:11.5px;color:rgba(255,255,255,.38)}
+.ch-arr{font-size:13px;color:rgba(255,255,255,.25);margin-left:auto}
+.form-panel{
+  background:rgba(255,255,255,.04);border:1px solid rgba(184,146,42,.16);
+  border-radius:4px;padding:34px 30px;
+}
+.form-h{font-family:var(--serif);font-size:1.3rem;color:var(--white);margin-bottom:4px}
+.form-sub2{font-size:12.5px;color:rgba(255,255,255,.38);margin-bottom:26px}
+.f-row{margin-bottom:15px}
+.f-row label{display:block;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;font-weight:500}
+.f-row input,.f-row select,.f-row textarea{
+  width:100%;padding:10px 13px;
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);
+  border-radius:3px;color:var(--white);font-family:var(--sans);font-size:13.5px;
+  outline:none;transition:border-color .2s;
+}
+.f-row input:focus,.f-row select:focus,.f-row textarea:focus{border-color:var(--gold)}
+.f-row input::placeholder,.f-row textarea::placeholder{color:rgba(255,255,255,.22)}
+.f-row select option{background:var(--navy)}
+.f-row textarea{resize:vertical;min-height:82px}
+.f-submit{
+  width:100%;padding:13px;background:var(--gold);color:var(--navy);
+  font-family:var(--sans);font-size:13.5px;font-weight:600;
+  border:none;border-radius:3px;cursor:pointer;letter-spacing:.2px;margin-top:6px;
+  transition:background .2s,transform .15s;
+}
+.f-submit:hover{background:var(--gold-2);transform:translateY(-1px)}
+.f-note{font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:10px;line-height:1.5}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer{
+  background:var(--navy);border-top:1px solid rgba(184,146,42,.13);
+  padding:28px 5vw;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:14px;
+}
+.f-brand{font-family:var(--serif);font-size:14.5px;color:rgba(255,255,255,.5)}
+.f-brand strong{color:var(--gold-2)}
+.f-motto{font-size:11px;color:rgba(255,255,255,.28);font-style:italic}
+.f-links{display:flex;gap:20px}
+.f-links a{font-size:11.5px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:var(--gold)}
+
+/* ── MOBILE BOTTOM BAR ───────────────────────────────── */
+.mob-bar{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(8,23,46,.98);
+  border-top:1px solid rgba(184,146,42,.2);
+  gap:10px;align-items:center;
+}
+.mob-bar-btn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:12px 10px;border-radius:3px;font-size:13px;font-weight:600;
+  text-decoration:none;cursor:pointer;border:none;transition:opacity .15s;
+}
+.mob-bar-btn:active{opacity:.8}
+.mob-bar-wa{background:var(--green);color:var(--white)}
+.mob-bar-call{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.4)}
+.mob-bar-book{background:var(--gold);color:var(--navy);font-weight:700}
+
+/* ── SLIDE-OUT PANEL ─────────────────────────────────── */
+.overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);
+  z-index:400;backdrop-filter:blur(4px);
+  opacity:0;transition:opacity .35s;
+}
+.overlay.show{display:flex;opacity:1}
+.slideout{
+  position:fixed;right:0;top:0;bottom:0;z-index:401;
+  width:min(420px,100vw);
+  background:var(--navy);border-left:1px solid rgba(184,146,42,.2);
+  padding:36px 28px;overflow-y:auto;
+  transform:translateX(100%);transition:transform .4s var(--ease);
+  display:flex;flex-direction:column;gap:0;
+}
+.slideout.open{transform:translateX(0)}
+.slideout-close{
+  position:absolute;top:20px;right:20px;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:rgba(255,255,255,.6);cursor:pointer;
+  transition:background .2s;
+}
+.slideout-close:hover{background:rgba(255,255,255,.12)}
+.slideout-h{font-family:var(--serif);font-size:1.6rem;color:var(--white);margin-bottom:4px;margin-top:8px}
+.slideout-sub{font-size:12.5px;color:rgba(255,255,255,.4);margin-bottom:26px}
+
+/* ── WA FLOAT DESKTOP ────────────────────────────────── */
+.wa-bubble{
+  display:flex;
+  position:fixed;bottom:28px;right:28px;z-index:150;
+  width:52px;height:52px;background:#25d366;border-radius:50%;
+  align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(0,0,0,.22);text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+  animation:wa-pop .5s 1.2s var(--ease) both;
+}
+@keyframes wa-pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.wa-bubble:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.wa-tip{
+  position:absolute;right:62px;top:50%;transform:translateY(-50%);
+  background:var(--navy);color:var(--white);
+  font-size:11.5px;font-weight:500;padding:6px 12px;border-radius:3px;
+  white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;
+  border:1px solid rgba(184,146,42,.2);
+}
+.wa-bubble:hover .wa-tip{opacity:1}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;padding-top:90px}
+  .hero-right{display:none}
+  .hero-stats-row{display:none}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .about-left{display:none}
+  .phil-grid{grid-template-columns:1fr;gap:36px}
+  .contact-grid{grid-template-columns:1fr;gap:36px}
+  .edu-grid{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .services-sticky{display:none}
+  .services-wrap{flex-direction:column}
+  .n-links{display:none}
+  .hamburger{display:flex}
+  .wa-bubble{display:none}
+  .mob-bar{display:flex}
+  body{padding-bottom:72px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="n-logo">
+    <div class="n-monogram">PA</div>
+    <div class="n-brand">
+      <span class="n-name">Dr. Pedro Avilés</span>
+      <span class="n-spec">Columna · Ortopedia · Movimiento</span>
+    </div>
+  </a>
+  <div class="n-links">
+    <a href="#about">Sobre Mí</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#filosofia">Filosofía</a>
+    <a href="#educacion">Educación</a>
+    <a href="#faq">FAQ</a>
+    <a href="#" class="n-cta" onclick="openPanel();return false">Agendar Consulta</a>
+  </div>
+  <div class="hamburger" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="closeMob()">Sobre Mí</a>
+  <a href="#servicios" onclick="closeMob()">Servicios</a>
+  <a href="#filosofia" onclick="closeMob()">Filosofía</a>
+  <a href="#educacion" onclick="closeMob()">Educación</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#" onclick="openPanel();closeMob();return false">→ Agendar Consulta</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-lines"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-left">
+    <div class="hero-badge"><span class="badge-dot"></span>Traumatología · Ortopedia · Columna Vertebral</div>
+    <p class="hero-label">Dr. Pedro Edmundo Avilés</p>
+    <h1 class="hero-h1">Recupera tu<br><em>movimiento.</em><br>Recupera tu vida.</h1>
+    <p class="hero-mantra">Movimiento es vida.</p>
+    <p class="hero-tagline">
+      <strong>Estoy aquí para ayudarte a comprender tu enfermedad</strong>, y mi compromiso es utilizar las herramientas más actuales y basadas en evidencia para resolverla sin ocasionarte mayor daño, acompañándote hasta tu recuperación total.
+    </p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="openPanel()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        Agendar Consulta
+      </button>
+      <a href="#servicios" class="btn-outline">Ver Procedimientos →</a>
+    </div>
+  </div>
+
+  <!-- SMART TRIAGE -->
+  <div class="hero-right">
+    <div class="triage-card">
+      <h3 class="triage-title">¿Dónde te duele?</h3>
+      <p class="triage-sub">Selecciona la zona para orientarte al servicio correcto.</p>
+      <div class="triage-grid">
+        <button class="triage-btn" onclick="triage('cuello')" id="t-cuello">
+          <span class="triage-icon">🧠</span>
+          <span class="triage-btn-label">Cuello / Cervical</span>
+          <span class="triage-btn-sub">Dolor, hormigueos en brazos</span>
+        </button>
+        <button class="triage-btn" onclick="triage('espalda')" id="t-espalda">
+          <span class="triage-icon">🦴</span>
+          <span class="triage-btn-label">Espalda / Lumbar</span>
+          <span class="triage-btn-sub">Dolor irradiado a piernas</span>
+        </button>
+        <button class="triage-btn" onclick="triage('rodilla')" id="t-rodilla">
+          <span class="triage-icon">🦵</span>
+          <span class="triage-btn-label">Articulaciones</span>
+          <span class="triage-btn-sub">Rodilla, Cadera, Hombro</span>
+        </button>
+        <button class="triage-btn" onclick="triage('fractura')" id="t-fractura">
+          <span class="triage-icon">⚡</span>
+          <span class="triage-btn-label">Fractura / Trauma</span>
+          <span class="triage-btn-sub">Accidente, caída, urgencia</span>
+        </button>
+      </div>
+      <div class="triage-result" id="triageResult">
+        <div class="triage-result-title" id="triageTitle"></div>
+        <div class="triage-result-body" id="triageBody"></div>
+        <a href="#contacto" class="triage-result-cta" id="triageCta">→ Consultar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES STRIP -->
+<div class="outcomes">
+  <div class="outcome-item">
+    <div class="outcome-num">TyO</div>
+    <div class="outcome-body">
+      <span class="outcome-label">Especialidad</span>
+      <span class="outcome-sub">Traumatología y Ortopedia</span>
+    </div>
+  </div>
+  <div class="outcome-div"></div>
+  <div class="outcome-item">
+    <div class="outcome-num">HCM</div>
+    <div class="outcome-body">
+      <span class="outcome-label">Formación de Élite</span>
+      <span class="outcome-sub">Hospital Central Militar</span>
+    </div>
+  </div>
+  <div class="outcome-div"></div>
+  <div class="outcome-item">
+    <div class="outcome-num">≤24h</div>
+    <div class="outcome-body">
+      <span class="outcome-label">Respuesta</span>
+      <span class="outcome-sub">Tiempo de contacto</span>
+    </div>
+  </div>
+  <div class="outcome-div"></div>
+  <div class="outcome-item">
+    <div class="outcome-num">10+</div>
+    <div class="outcome-body">
+      <span class="outcome-label">Procedimientos</span>
+      <span class="outcome-sub">Áreas de alta especialidad</span>
+    </div>
+  </div>
+  <div class="outcome-div"></div>
+  <div class="outcome-item">
+    <div class="outcome-num">100%</div>
+    <div class="outcome-body">
+      <span class="outcome-label">Evidencia</span>
+      <span class="outcome-sub">Basado en ciencia</span>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BANNER -->
+<div class="trust">
+  <div class="trust-item">
+    <div class="trust-icon">⊕</div>
+    Hospital Central Militar
+  </div>
+  <div class="trust-div"></div>
+  <div class="trust-item">
+    <div class="trust-icon">◎</div>
+    Cirugía basada en evidencia
+  </div>
+  <div class="trust-div"></div>
+  <div class="trust-item">
+    <div class="trust-icon">△</div>
+    Técnicas mínimamente invasivas
+  </div>
+  <div class="trust-div"></div>
+  <div class="trust-item">
+    <div class="trust-icon">◇</div>
+    Primum non nocere
+  </div>
+  <div class="trust-div"></div>
+  <div class="trust-item">
+    <div class="trust-icon">✦</div>
+    Seguimiento total postoperatorio
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left fade">
+      <div class="about-frame"><span class="about-monogram">PA</span></div>
+      <div class="eeat-metrics">
+        <div class="eeat-box">
+          <span class="eeat-num">TyO</span>
+          <span class="eeat-desc">Especialidad</span>
+        </div>
+        <div class="eeat-box">
+          <span class="eeat-num">HCM</span>
+          <span class="eeat-desc">Formación</span>
+        </div>
+        <div class="eeat-box">
+          <span class="eeat-num">10+</span>
+          <span class="eeat-desc">Procedimientos</span>
+        </div>
+        <div class="eeat-box">
+          <span class="eeat-num">≤24h</span>
+          <span class="eeat-desc">Respuesta</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-right fade">
+      <div class="s-header">
+        <span class="s-tag">Sobre el Dr. Avilés</span>
+        <h2 class="s-h2">Precisión quirúrgica.<br>Calidez humana genuina.</h2>
+      </div>
+      <blockquote class="primum">Primum non nocere.<br>Primero, no hacer daño.</blockquote>
+      <p class="about-p">Desde que tengo memoria, siempre quise ser médico para ayudar a las personas. La Traumatología y Ortopedia mantiene a cada paciente en <strong>movimiento — y el movimiento es vida</strong>. Es la especialidad que permite regresar el cuerpo a como estaba antes de una lesión.</p>
+      <p class="about-p">Mi primer acercamiento hospitalario fue en TyO, donde literalmente arreglamos una fractura. A partir de ahí, nunca la solté. Mamá, papá, mis dos abuelos maternos pasaron por quirófano y los vi recuperar al 100% su actividad. Mi abuelo <strong>Edmundo</strong> siempre me dijo: <em>"No veas a los pacientes como un número. Nunca te hagas insensible."</em></p>
+      <p class="about-p">Mi formación de posgrado en el <strong>Hospital Central Militar</strong> me proveyó de sistematización de pasos quirúrgicos y la capacidad de resolver las lesiones más complejas con el menor daño posible.</p>
+      <div class="military-badge">
+        <span>⊕</span>
+        Posgrado · Hospital Central Militar
+      </div>
+      <div class="tags">
+        <span class="tag hi">Formación Hosp. Militar</span>
+        <span class="tag">Honesto</span>
+        <span class="tag">Confiable</span>
+        <span class="tag">Empático</span>
+        <span class="tag">Hábil</span>
+        <span class="tag">Disponible post-consulta</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="s-header fade">
+    <span class="s-tag">Procedimientos</span>
+    <h2 class="s-h2">Soluciones de alto impacto.<br>Mínima intervención cuando es posible.</h2>
+    <p class="s-sub">Procedimientos de alta especialidad, seleccionados por eficiencia clínica y capacidad de transformar la calidad de vida del paciente.</p>
+  </div>
+  <div class="services-wrap">
+    <nav class="services-sticky">
+      <div class="svc-index">
+        <a href="#svc-col" class="svc-idx-item active" onclick="setActiveIdx(this)"><span class="svc-idx-num">01</span>Columna</a>
+        <a href="#svc-art" class="svc-idx-item" onclick="setActiveIdx(this)"><span class="svc-idx-num">02</span>Artroplastias</a>
+        <a href="#svc-gen" class="svc-idx-item" onclick="setActiveIdx(this)"><span class="svc-idx-num">03</span>Ortopedia Gen.</a>
+        <a href="#svc-reh" class="svc-idx-item" onclick="setActiveIdx(this)"><span class="svc-idx-num">04</span>Rehabilitación</a>
+      </div>
+    </nav>
+    <div class="services-main">
+      <div class="svc-cards">
+        <!-- CATEGORIA: COLUMNA -->
+        <div id="svc-col" class="svc-category-group">
+            <div class="svc-card fade">
+              <div class="svc-n">01</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Cirugía Mínima Invasiva de Columna</h3>
+              <p class="svc-desc">Técnicas avanzadas (MIS) para resolver patologías vertebrales con incisiones mínimas, reduciendo el dolor postoperatorio y acelerando el retorno a la vida cotidiana.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+            <div class="svc-card fade">
+              <div class="svc-n">02</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Descompresión Medular y Radicular</h3>
+              <p class="svc-desc">Tratamiento para estenosis de canal y hernias de disco. Libera la presión sobre la médula y nervios para aliviar dolor irradiado y recuperar función neurológica.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+            <div class="svc-card fade">
+              <div class="svc-n">03</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Instrumentación de Columna</h3>
+              <p class="svc-desc">Fijación quirúrgica mediante sistemas de última generación para estabilizar la columna en casos de inestabilidad, fracturas o procesos degenerativos.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+            <div class="svc-card fade">
+              <div class="svc-n">04</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Corrección de Deformidades</h3>
+              <p class="svc-desc">Abordaje quirúrgico especializado para escoliosis y otras deformidades estructurales, buscando el equilibrio sagital y coronal del paciente.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+        </div>
+
+        <!-- CATEGORIA: ARTROPLASTIAS -->
+        <div id="svc-art" class="svc-category-group">
+            <div class="svc-card fade">
+              <div class="svc-n">05</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Artroplastia de Rodilla</h3>
+              <p class="svc-desc">Reemplazo articular total para gonartrosis severa. Diseñado para eliminar el dolor crónico y devolver la movilidad completa al caminar.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+            <div class="svc-card fade">
+              <div class="svc-n">06</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Artroplastia de Cadera</h3>
+              <p class="svc-desc">Sustitución protésica de la cadera por desgaste (coxartrosis) o fractura, permitiendo una marcha fluida y sin dolor.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+            <div class="svc-card fade">
+              <div class="svc-n">07</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Artroplastia de Hombro</h3>
+              <p class="svc-desc">Solución definitiva para el desgaste severo del hombro (artrosis), restaurando el rango de movimiento y la funcionalidad del brazo.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+        </div>
+
+        <!-- CATEGORIA: ORTOPEDIA GENERAL / TRAUMA -->
+        <div id="svc-gen" class="svc-category-group">
+            <div class="svc-card fade">
+              <div class="svc-n">08</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Osteosíntesis de Fracturas</h3>
+              <p class="svc-desc">Fijación interna de fracturas complejas mediante placas, tornillos o clavos endomedulares, garantizando una consolidación ósea óptima.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+            <div class="svc-card fade">
+              <div class="svc-n">09</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Artroscopia Articular</h3>
+              <p class="svc-desc">Cirugía de mínima invasión para tratar lesiones de meniscos, ligamentos o cartílago en rodilla y hombro con cámaras de alta definición.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+        </div>
+
+        <!-- CATEGORIA: REHABILITACION -->
+        <div id="svc-reh" class="svc-category-group">
+            <div class="svc-card fade">
+              <div class="svc-n">10</div>
+              <div class="svc-bar"></div>
+              <h3 class="svc-title">Medicina de Rehabilitación (Terapia Física)</h3>
+              <p class="svc-desc">Protocolos personalizados de fisioterapia y rehabilitación para garantizar el éxito total de la cirugía y el retorno a la actividad física.</p>
+              <a href="#" class="svc-cta" onclick="openPanel();return false">Consultar procedimiento</a>
+            </div>
+        </div>
+
+      </div>
+      <!-- BLUE OCEAN BANNER -->
+      <div class="blue-ocean-banner fade" id="svcbo">
+        <span class="bo-tag">◎ Diferencial · Blue Ocean</span>
+        <h3 class="bo-title">¿Sabías que no toda cirugía de columna requiere apertura abierta?</h3>
+        <p class="bo-sub">Cuando las condiciones lo permiten, priorizamos técnicas mínimamente invasivas: menor trauma tisular, menos dolor postoperatorio y recuperación más rápida. <em>Con bisturí cuando es necesario. Sin bisturí cuando es posible.</em></p>
+        <div class="bo-chips">
+          <span class="bo-chip">Endoscopia espinal</span>
+          <span class="bo-chip">Cirugía percutánea</span>
+          <span class="bo-chip">Técnica MIS</span>
+          <span class="bo-chip">Menor tiempo de recuperación</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="filosofia">
+  <div class="phil-grid">
+    <div class="phil-left">
+      <div class="s-header">
+        <span class="s-tag">Filosofía Médica</span>
+        <h2 class="s-h2">Un principio,<br>una guía.</h2>
+      </div>
+      <blockquote class="bigquote">
+        Estoy aquí para ayudarte a comprender tu enfermedad, y mi compromiso es utilizar las herramientas más actuales y basadas en evidencia para resolverla sin ocasionarte mayor daño, acompañándote hasta tu recuperación total.
+      </blockquote>
+      <p class="phil-desc">Cada paciente llega en un momento vulnerable — con dolor, miedo e incertidumbre. Mi responsabilidad es no solo resolver el problema clínico, sino acompañar con claridad, precisión y humanidad en cada paso del camino hacia la recuperación.</p>
+    </div>
+    <div class="principles fade">
+      <div class="princ">
+        <div class="princ-icon">⊕</div>
+        <div><h4>Primero, no hacer daño</h4><p>El principio hipocrático como brújula de cada decisión quirúrgica y clínica.</p></div>
+      </div>
+      <div class="princ">
+        <div class="princ-icon">◎</div>
+        <div><h4>Técnica personalizada</h4><p>Seleccionar la técnica que mejor sirve a este paciente específico, no la técnica de siempre.</p></div>
+      </div>
+      <div class="princ">
+        <div class="princ-icon">△</div>
+        <div><h4>Sistematización institucional</h4><p>Precisión, orden y protocolos de alto desempeño derivados de la formación en el HCM.</p></div>
+      </div>
+      <div class="princ">
+        <div class="princ-icon">◇</div>
+        <div><h4>Humildad y equipo</h4><p>Escuchar al equipo quirúrgico y reconocer los límites propios para pedir apoyo.</p></div>
+      </div>
+      <div class="princ">
+        <div class="princ-icon">○</div>
+        <div><h4>Fe y propósito</h4><p>La convicción en un ser superior que permite claridad y aplicación óptima del conocimiento.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="educacion">
+  <div class="s-header fade">
+    <span class="s-tag">Educación &amp; Blog</span>
+    <h2 class="s-h2">Conocimiento al servicio<br>de pacientes y colegas.</h2>
+    <p class="s-sub">Artículos educativos, cápsulas clínicas y guías para pacientes, médicos residentes y colegas de especialidad.</p>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card fade">
+      <div class="edu-thumb t1"><div class="edu-ico">🦴</div><span class="edu-badge">Pacientes</span></div>
+      <div class="edu-body">
+        <p class="edu-meta">Ortopedia · 5 min</p>
+        <h3 class="edu-title">¿Cuándo es necesaria la cirugía de rodilla?</h3>
+        <p class="edu-excerpt">Reconoce las señales que indican que el tratamiento conservador ya no es suficiente y cuándo considerar la artroplastia.</p>
+      </div>
+    </div>
+    <div class="edu-card fade">
+      <div class="edu-thumb t2"><div class="edu-ico">🧠</div><span class="edu-badge">Pacientes</span></div>
+      <div class="edu-body">
+        <p class="edu-meta">Columna · 6 min</p>
+        <h3 class="edu-title">Hernia de disco: mitos y realidades sobre la cirugía</h3>
+        <p class="edu-excerpt">Desmitificamos los miedos más comunes y explicamos qué esperar antes, durante y después del procedimiento.</p>
+      </div>
+    </div>
+    <div class="edu-card fade">
+      <div class="edu-thumb t3"><div class="edu-ico">📋</div><span class="edu-badge">Colegas</span></div>
+      <div class="edu-body">
+        <p class="edu-meta">Técnica Quirúrgica · 10 min</p>
+        <h3 class="edu-title">Sistematización en osteosíntesis: enfoque HCM</h3>
+        <p class="edu-excerpt">Protocolo basado en la formación del Hospital Central Militar para el manejo estandarizado de fracturas complejas.</p>
+      </div>
+    </div>
+  </div>
+  <div class="podcast-row fade">
+    <div class="pod-icon"><span class="pod-icon-i">🎙</span><span class="pod-icon-t">Podcast</span></div>
+    <div class="pod-body">
+      <span class="pod-soon">Próximamente</span>
+      <h4>Calidad de Movimiento — El Podcast</h4>
+      <p>Entrevistas con eminencias médicas, cápsulas técnicas para colegas y conversaciones accesibles para pacientes. <em>Movimiento es vida.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="s-header fade">
+    <span class="s-tag">Preguntas Frecuentes</span>
+    <h2 class="s-h2">Resolvemos tus dudas<br>antes de la primera consulta.</h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item fade">
+      <div class="faq-q" onclick="toggleFaq(this)">¿Cómo sé si necesito cirugía de columna? <span class="faq-arr">↓</span></div>
+      <div class="faq-a">Si presentas dolor lumbar o cervical intenso que irradia hacia brazos o piernas, acompañado de hormigueos o debilidad muscular progresiva, es momento de una evaluación especializada. La cirugía se considera cuando el tratamiento conservador no ha resuelto el problema en 6-12 semanas o hay deterioro neurológico activo.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tarda la recuperación de una artroplastia de rodilla? <span class="faq-arr">↓</span></div>
+      <div class="faq-a">La recuperación funcional inicial ocurre en 4-6 semanas. La mayoría retoma actividades cotidianas a los 2-3 meses. La recuperación completa puede tomar 6-12 meses. El seguimiento postoperatorio es parte integral de nuestro protocolo de atención.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q" onclick="toggleFaq(this)">¿Cuál es el primer paso para agendar? <span class="faq-arr">↓</span></div>
+      <div class="faq-a">Puedes contactarme directamente por WhatsApp o llenar el formulario de esta página. Te responderemos en menos de 24 horas hábiles para coordinar tu consulta presencial o virtual según tu caso y ubicación geográfica.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q" onclick="toggleFaq(this)">¿Atiende con seguro médico? <span class="faq-arr">↓</span></div>
+      <div class="faq-a">Atendemos consulta privada y derivaciones vía aseguradoras. Contáctanos para verificar la cobertura de tu aseguradora y coordinar los trámites. También hay opciones de financiamiento y planes de pago personalizados.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q" onclick="toggleFaq(this)">¿Qué debo llevar a la primera consulta? <span class="faq-arr">↓</span></div>
+      <div class="faq-a">Trae estudios de imagen previos (RMN, TAC, rayos X), resultados de laboratorio recientes, y una lista de medicamentos actuales. Si tienes un diagnóstico previo, también el expediente o notas médicas anteriores facilitan la evaluación.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q" onclick="toggleFaq(this)">¿Ofrece segunda opinión médica? <span class="faq-arr">↓</span></div>
+      <div class="faq-a">Sí. Una segunda opinión es siempre válida para decisiones quirúrgicas. Revisaré tu caso con los mismos estándares de evidencia y explicaré claramente mis conclusiones, independientemente de si coinciden con el diagnóstico previo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <div class="s-header">
+        <span class="s-tag">Contacto</span>
+        <h2 class="s-h2">El primer paso<br>hacia tu recuperación.</h2>
+        <p class="s-sub">Agenda tu consulta hoy. Respuesta garantizada en menos de 24 horas.</p>
+      </div>
+      <div class="channels">
+        <a href="https://wa.me/521XXXXXXXXXX" class="channel" target="_blank">
+          <div class="ch-ico ch-wa2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <div class="ch-body"><strong>WhatsApp Business</strong><span>Respuesta inmediata · Consultas y citas</span></div>
+          <span class="ch-arr">→</span>
+        </a>
+        <a href="https://instagram.com" class="channel" target="_blank">
+          <div class="ch-ico ch-ig2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div class="ch-body"><strong>Instagram</strong><span>@drpedroaviles · Casos, educación y tips</span></div>
+          <span class="ch-arr">→</span>
+        </a>
+        <a href="https://youtube.com" class="channel" target="_blank">
+          <div class="ch-ico ch-yt2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <div class="ch-body"><strong>YouTube</strong><span>Dr. Pedro Avilés · Videos educativos</span></div>
+          <span class="ch-arr">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="form-panel fade">
+      <h3 class="form-h">Solicitar Consulta</h3>
+      <p class="form-sub2">Completa el formulario. Te contactamos en &lt;24 hrs.</p>
+      <form onsubmit="submitForm(event)">
+        <div class="f-row"><label>Nombre completo</label><input type="text" placeholder="Tu nombre" required></div>
+        <div class="f-row"><label>Teléfono / WhatsApp</label><input type="tel" placeholder="+52 555 000 0000" required></div>
+        <div class="f-row">
+          <label>Área de dolor</label>
+          <select>
+            <option value="">Selecciona un procedimiento</option>
+            <option>Columna / Espalda</option>
+            <option>Rodilla / Cadera / Hombro</option>
+            <option>Fractura / Trauma</option>
+            <option>Rehabilitación</option>
+            <option>Segunda opinión</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="f-row"><label>Mensaje breve (opcional)</label><textarea placeholder="Cuéntame brevemente tu situación..."></textarea></div>
+        <button type="submit" class="f-submit" id="mainSubmit">Enviar Solicitud →</button>
+        <p class="f-note">Tus datos son confidenciales y están protegidos bajo aviso de privacidad. Nunca compartidos con terceros.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <p class="f-brand">© 2026 <strong>Dr. Pedro Edmundo Avilés</strong> · Centro de Columna y Movimiento</p>
+    <p class="f-motto">Movimiento es vida.</p>
+  </div>
+  <div class="f-links">
+    <a href="#about">Sobre Mí</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#">Aviso de Privacidad</a>
+  </div>
+</footer>
+
+<!-- MOBILE BOTTOM BAR -->
+<div class="mob-bar">
+  <a href="https://wa.me/521XXXXXXXXXX" class="mob-bar-btn mob-bar-wa" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    WhatsApp
+  </a>
+  <button class="mob-bar-btn mob-bar-book" onclick="openPanel()">Agendar Cita</button>
+</div>
+
+<!-- WA FLOAT DESKTOP -->
+<a href="https://wa.me/521XXXXXXXXXX" class="wa-bubble" target="_blank">
+  <div class="wa-tip">¡Escríbeme ahora!</div>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- SLIDE-OUT PANEL -->
+<div class="overlay" id="overlay" onclick="closePanel()"></div>
+<div class="slideout" id="slideout">
+  <div class="slideout-close" onclick="closePanel()">✕</div>
+  <h3 class="slideout-h">Agendar Consulta</h3>
+  <p class="slideout-sub">Respuesta en menos de 24 horas.</p>
+  <form onsubmit="submitSlide(event)">
+    <div class="f-row"><label>Nombre</label><input type="text" placeholder="Tu nombre" required></div>
+    <div class="f-row"><label>Teléfono / WhatsApp</label><input type="tel" placeholder="+52 555 000 0000" required></div>
+    <div class="f-row">
+      <label>¿Dónde te duele?</label>
+      <select>
+        <option value="">Selecciona</option>
+        <option>Columna / Espalda</option>
+        <option>Rodilla / Cadera / Hombro</option>
+        <option>Fractura / Trauma</option>
+        <option>Segunda opinión</option>
+      </select>
+    </div>
+    <div class="f-row"><label>Nota breve</label><textarea placeholder="Cuéntame brevemente..."></textarea></div>
+    <button type="submit" class="f-submit" id="slideSubmit">Enviar — te contacto pronto →</button>
+    <p class="f-note">Datos confidenciales bajo aviso de privacidad.</p>
+  </form>
+</div>
+
+<script>
+/* NAV */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('compact',scrollY>60);
+});
+
+/* MOBILE MENU */
+function toggleMob(){
+  const m=document.getElementById('mobMenu');
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+function closeMob(){document.getElementById('mobMenu').style.display='none'}
+
+/* FADE IN */
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+/* SMART TRIAGE */
+const triageData={
+  cuello:{
+    title:'Cirugía de Columna Cervical',
+    body:'Dolor cervical con irradiación a brazos o manos, hormigueos y pérdida de fuerza pueden indicar hernia cervical o estenosis. Requiere evaluación urgente.',
+    cta:'→ Consultar columna cervical'
+  },
+  espalda:{
+    title:'Descompresión Lumbar / Columna',
+    body:'Dolor lumbar irradiado a piernas (ciática), parestesias y debilidad progresiva son señales de hernia discal o canal estrecho. Te evaluamos.',
+    cta:'→ Consultar columna lumbar'
+  },
+  rodilla:{
+    title:'Artroplastias de Alta Especialidad',
+    body:'Dolor articular incapacitante en rodilla, cadera u hombro. Evaluamos la necesidad de reemplazo articular para recuperar tu independencia.',
+    cta:'→ Consultar articulaciones'
+  },
+  fractura:{
+    title:'Osteosíntesis — Urgencia',
+    body:'Las fracturas por accidente o caída requieren atención inmediata. La fijación quirúrgica precisa determina la calidad de la recuperación funcional.',
+    cta:'→ Urgencia — contactar ahora'
+  }
+};
+function triage(zone){
+  document.querySelectorAll('.triage-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('t-'+zone).classList.add('active');
+  const d=triageData[zone];
+  const r=document.getElementById('triageResult');
+  document.getElementById('triageTitle').textContent=d.title;
+  document.getElementById('triageBody').textContent=d.body;
+  document.getElementById('triageCta').textContent=d.cta;
+  r.classList.add('show');
+}
+
+/* SERVICE INDEX */
+function setActiveIdx(el){
+  document.querySelectorAll('.svc-idx-item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* SLIDE PANEL */
+function openPanel(){
+  document.getElementById('overlay').classList.add('show');
+  setTimeout(()=>document.getElementById('slideout').classList.add('open'),10);
+  document.body.style.overflow='hidden';
+}
+function closePanel(){
+  document.getElementById('slideout').classList.remove('open');
+  setTimeout(()=>{
+    document.getElementById('overlay').classList.remove('show');
+    document.body.style.overflow='';
+  },400);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePanel()});
+
+/* FAQ */
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+/* FORMS */
+function submitForm(e){
+  e.preventDefault();
+  const b=document.getElementById('mainSubmit');
+  b.textContent='✓ Solicitud enviada — te contactamos pronto';
+  b.style.background='#2d7a4f';b.disabled=true;
+}
+function submitSlide(e){
+  e.preventDefault();
+  const b=document.getElementById('slideSubmit');
+  b.textContent='✓ Enviado — respuesta en <24 hrs';
+  b.style.background='#2d7a4f';b.disabled=true;
+  setTimeout(closePanel,2000);
+}
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);
+    if(!id)return;
+    const el=document.getElementById(id);
+    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+</script>
+</body>
+</html>
